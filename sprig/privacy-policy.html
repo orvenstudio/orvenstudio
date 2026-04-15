@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>개인정보처리방침 · Privacy Policy — Sprig</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --green-50: #f0faf4;
+      --green-100: #d6f0e0;
+      --green-500: #3a9e6f;
+      --green-700: #1f6b48;
+      --green-900: #0d3d28;
+      --ink: #1a1f1c;
+      --ink-muted: #4a5550;
+      --ink-faint: #8a9690;
+      --surface: #fafcfb;
+      --border: #dde8e2;
+      --accent: #3a9e6f;
+      --radius: 12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* Header */
+    header {
+      background: var(--green-900);
+      color: #fff;
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: var(--green-500);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .logo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      letter-spacing: 0.02em;
+      color: #fff;
+    }
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    header h1 em {
+      font-style: italic;
+      color: var(--green-100);
+    }
+    .header-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-top: 16px;
+    }
+
+    /* Lang toggle */
+    .lang-toggle {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,252,251,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+    .lang-btn {
+      padding: 6px 20px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--green-900);
+      border-color: var(--green-900);
+      color: #fff;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* Section */
+    .policy-section {
+      margin-bottom: 48px;
+    }
+    .section-number {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .policy-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--green-900);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .policy-section p {
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+    }
+    .policy-section p:last-child { margin-bottom: 0; }
+
+    /* Table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .data-table th {
+      background: var(--green-50);
+      color: var(--green-700);
+      font-weight: 500;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--green-100);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    .data-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink-muted);
+      vertical-align: top;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      background: var(--green-100);
+      color: var(--green-700);
+    }
+
+    /* Callout */
+    .callout {
+      background: var(--green-50);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 14px;
+      color: var(--ink-muted);
+    }
+    .callout strong { color: var(--green-700); font-weight: 500; }
+
+    /* Contact */
+    .contact-card {
+      background: var(--green-900);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-top: 20px;
+    }
+    .contact-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .contact-card a {
+      color: var(--green-100);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .contact-card p { color: rgba(255,255,255,0.65); font-size: 14px; }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 56px 0;
+    }
+    .lang-label {
+      text-align: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 13px;
+      color: var(--ink-faint);
+      letter-spacing: 0.08em;
+      margin-bottom: 40px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 12px;
+      color: var(--ink-faint);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Hidden section control */
+    .section-en { display: block; }
+    body.ko-only .section-en { display: none; }
+    body.en-only .section-ko { display: none; }
+    body.ko-only .divider-lang { display: none; }
+    body.ko-only .lang-label { display: none; }
+    body.en-only .lang-label { display: none; }
+
+    @media (max-width: 600px) {
+      .data-table { font-size: 13px; }
+      .data-table th, .data-table td { padding: 9px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">
+    <div class="logo-icon">🌱</div>
+    <span class="logo-name">Sprig</span>
+  </div>
+  <h1>개인정보처리방침<br><em>Privacy Policy</em></h1>
+  <p class="header-meta">시행일 · Effective Date: 2025년 1월 1일 · January 1, 2025</p>
+</header>
+
+<nav class="lang-toggle" aria-label="언어 선택">
+  <button class="lang-btn active" onclick="setLang('all')">한국어 + English</button>
+  <button class="lang-btn" onclick="setLang('ko')">한국어만</button>
+  <button class="lang-btn" onclick="setLang('en')">English only</button>
+</nav>
+
+<div class="container">
+
+  <!-- ───────────── 한국어 ───────────── -->
+  <div class="section-ko">
+    <div class="lang-label">— 한국어 —</div>
+
+    <div class="policy-section">
+      <span class="section-number">01</span>
+      <h2>총칙</h2>
+      <p>Sprig(이하 "앱")은 이용자의 개인정보를 소중히 여기며, 「개인정보 보호법」 및 관계 법령을 준수합니다. 본 방침은 앱이 수집하는 정보의 종류, 사용 목적, 보관 방법 및 이용자의 권리를 안내합니다.</p>
+      <div class="callout">
+        <strong>핵심 원칙:</strong> Sprig는 광고를 표시하지 않으며, 이용자 데이터를 제3자에게 판매하지 않습니다.
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">02</span>
+      <h2>수집하는 정보</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>항목</th><th>수집 방법</th><th>저장 위치</th><th>목적</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>루틴 · 습관 데이터<br><small>(루틴명, 체크 기록, 통계)</small></td>
+            <td>직접 입력</td>
+            <td><span class="badge">기기 내 로컬</span></td>
+            <td>서비스 제공</td>
+          </tr>
+          <tr>
+            <td>알림 설정</td>
+            <td>직접 설정</td>
+            <td><span class="badge">기기 내 로컬</span></td>
+            <td>알림 발송</td>
+          </tr>
+          <tr>
+            <td>클라우드 동기화 데이터</td>
+            <td>이용자 선택 연동</td>
+            <td><span class="badge">Google Cloud</span></td>
+            <td>기기 간 동기화</td>
+          </tr>
+          <tr>
+            <td>앱 사용 분석 정보<br><small>(이벤트, 세션, 오류 로그)</small></td>
+            <td>자동 수집</td>
+            <td><span class="badge">Firebase 서버</span></td>
+            <td>서비스 개선</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>앱은 이름, 이메일, 전화번호, 위치 정보 등 식별 가능한 개인정보를 별도로 수집하지 않습니다.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">03</span>
+      <h2>제3자 서비스</h2>
+      <p>앱은 서비스 개선을 위해 아래 제3자 서비스를 사용합니다. 각 서비스의 개인정보처리방침을 확인하시기 바랍니다.</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>서비스</th><th>제공사</th><th>목적</th><th>방침 링크</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Firebase Analytics</td>
+            <td>Google LLC</td>
+            <td>사용 분석 · 오류 추적</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank">보기 →</a></td>
+          </tr>
+          <tr>
+            <td>Google Cloud</td>
+            <td>Google LLC</td>
+            <td>데이터 동기화 (선택)</td>
+            <td><a href="https://policies.google.com/privacy" target="_blank">보기 →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">04</span>
+      <h2>정보의 보관 및 삭제</h2>
+      <p>기기 내 로컬 데이터는 앱을 삭제하면 즉시 제거됩니다. Firebase에 수집된 분석 데이터는 Google의 보관 정책(기본 14개월)에 따릅니다. 클라우드 동기화 데이터는 이용자가 연동을 해제하거나 앱 내 삭제 기능을 통해 제거할 수 있습니다.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">05</span>
+      <h2>이용자의 권리</h2>
+      <p>이용자는 언제든지 아래 권리를 행사할 수 있습니다.</p>
+      <table class="data-table">
+        <thead><tr><th>권리</th><th>방법</th></tr></thead>
+        <tbody>
+          <tr><td>데이터 열람 · 수정</td><td>앱 내 직접 확인 및 수정</td></tr>
+          <tr><td>데이터 삭제</td><td>앱 삭제 또는 개발자에게 이메일 요청</td></tr>
+          <tr><td>분석 데이터 수집 거부</td><td>기기 설정 → 추적 제한 (iOS) / 광고 ID 초기화 (Android)</td></tr>
+          <tr><td>클라우드 동기화 해제</td><td>앱 설정에서 연동 해제</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">06</span>
+      <h2>아동 개인정보</h2>
+      <p>본 앱은 만 14세 미만 아동을 대상으로 하지 않으며, 고의로 아동의 개인정보를 수집하지 않습니다. 만약 아동의 정보가 수집된 사실을 확인하는 경우, 즉시 삭제 조치합니다.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">07</span>
+      <h2>인앱결제 및 구독 (예정)</h2>
+      <div class="callout">
+        현재 앱은 무료로 제공됩니다. 향후 Sprig+ 구독 및 인앱결제 기능이 추가될 경우, 결제 정보는 Apple App Store 또는 Google Play의 결제 시스템에 의해 처리되며 앱 개발자는 해당 정보를 직접 수집하거나 저장하지 않습니다. 변경 시 본 방침을 업데이트하고 사전 공지합니다.
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">08</span>
+      <h2>방침의 변경</h2>
+      <p>본 방침은 법령 변경 또는 서비스 업데이트에 따라 개정될 수 있습니다. 변경 시 앱 업데이트 노트 및 본 페이지를 통해 사전 안내합니다. 중요한 변경의 경우 앱 내 알림으로 별도 고지합니다.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">09</span>
+      <h2>문의</h2>
+      <div class="contact-card">
+        <h3>개인정보 관련 문의</h3>
+        <p>이메일: <a href="mailto:privacy@example.com">privacy@example.com</a> <em style="color:rgba(255,255,255,0.4);font-size:12px;">(실제 이메일로 교체 필요)</em></p>
+        <p style="margin-top:8px;">문의 접수 후 영업일 기준 7일 이내 답변드립니다.</p>
+      </div>
+    </div>
+  </div><!-- /section-ko -->
+
+  <hr class="divider divider-lang"/>
+
+  <!-- ───────────── English ───────────── -->
+  <div class="section-en">
+    <div class="lang-label">— English —</div>
+
+    <div class="policy-section">
+      <span class="section-number">01</span>
+      <h2>Overview</h2>
+      <p>Sprig ("the App") is committed to protecting your privacy and complying with applicable data protection laws, including Korea's Personal Information Protection Act (PIPA). This policy explains what information we collect, why we collect it, how it is stored, and your rights as a user.</p>
+      <div class="callout">
+        <strong>Our core promise:</strong> Sprig shows no ads and never sells your data to third parties.
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">02</span>
+      <h2>Information We Collect</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Data</th><th>How collected</th><th>Stored</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Routine &amp; habit data<br><small>(routine names, check-ins, stats)</small></td>
+            <td>User input</td>
+            <td><span class="badge">On-device</span></td>
+            <td>Core functionality</td>
+          </tr>
+          <tr>
+            <td>Notification settings</td>
+            <td>User preference</td>
+            <td><span class="badge">On-device</span></td>
+            <td>Send reminders</td>
+          </tr>
+          <tr>
+            <td>Cloud-synced data</td>
+            <td>Optional opt-in</td>
+            <td><span class="badge">Google Cloud</span></td>
+            <td>Cross-device sync</td>
+          </tr>
+          <tr>
+            <td>App usage analytics<br><small>(events, sessions, crash logs)</small></td>
+            <td>Automatic</td>
+            <td><span class="badge">Firebase servers</span></td>
+            <td>Service improvement</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>We do not collect identifiable personal information such as your name, email address, phone number, or location.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">03</span>
+      <h2>Third-Party Services</h2>
+      <p>The App uses the following third-party services. Each has its own privacy policy that governs how data is handled on their end.</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Service</th><th>Provider</th><th>Purpose</th><th>Policy</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Firebase Analytics</td>
+            <td>Google LLC</td>
+            <td>Usage analytics &amp; crash tracking</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank">View →</a></td>
+          </tr>
+          <tr>
+            <td>Google Cloud</td>
+            <td>Google LLC</td>
+            <td>Data sync (optional)</td>
+            <td><a href="https://policies.google.com/privacy" target="_blank">View →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">04</span>
+      <h2>Data Retention &amp; Deletion</h2>
+      <p>On-device data is immediately deleted when you uninstall the App. Analytics data collected via Firebase is retained according to Google's default retention period (14 months). Cloud-synced data can be removed by disconnecting your account or using the delete function within the App.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">05</span>
+      <h2>Your Rights</h2>
+      <table class="data-table">
+        <thead><tr><th>Right</th><th>How to exercise</th></tr></thead>
+        <tbody>
+          <tr><td>Access &amp; correction</td><td>Directly within the App</td></tr>
+          <tr><td>Deletion</td><td>Uninstall the App or email us</td></tr>
+          <tr><td>Opt out of analytics</td><td>iOS: Settings → Privacy → Tracking; Android: Reset Advertising ID</td></tr>
+          <tr><td>Disconnect cloud sync</td><td>App Settings → disconnect account</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">06</span>
+      <h2>Children's Privacy</h2>
+      <p>Sprig is not directed at children under 14. We do not knowingly collect data from children. If we become aware that a child's data has been collected, we will delete it immediately.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">07</span>
+      <h2>In-App Purchases &amp; Subscriptions (Planned)</h2>
+      <div class="callout">
+        The App is currently free. When Sprig+ subscriptions and in-app purchases are introduced, all payment transactions will be processed exclusively by Apple App Store or Google Play. We will not directly collect or store any payment information. This policy will be updated and users notified in advance.
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">08</span>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this policy in response to legal changes or service updates. Changes will be communicated through App release notes and this page. Material changes will also be notified via in-app alerts.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">09</span>
+      <h2>Contact Us</h2>
+      <div class="contact-card">
+        <h3>Privacy Inquiries</h3>
+        <p>Email: <a href="mailto:privacy@example.com">privacy@example.com</a> <em style="color:rgba(255,255,255,0.4);font-size:12px;">(replace with your actual email)</em></p>
+        <p style="margin-top:8px;">We aim to respond within 7 business days.</p>
+      </div>
+    </div>
+  </div><!-- /section-en -->
+
+</div><!-- /container -->
+
+<footer>
+  &copy; 2025 Sprig · 최종 업데이트 · Last updated: 2025-01-01
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.classList.remove('ko-only', 'en-only');
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    if (lang === 'ko') {
+      document.body.classList.add('ko-only');
+      document.querySelectorAll('.lang-btn')[1].classList.add('active');
+    } else if (lang === 'en') {
+      document.body.classList.add('en-only');
+      document.querySelectorAll('.lang-btn')[2].classList.add('active');
+    } else {
+      document.querySelectorAll('.lang-btn')[0].classList.add('active');
+    }
+  }
+</script>
+
+</body>
+</html>
