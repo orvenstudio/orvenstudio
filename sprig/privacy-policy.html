@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>개인정보처리방침 · Privacy Policy — Sprig</title>
+  <title>Privacy Policy — Sprig</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
@@ -64,10 +64,6 @@
       font-weight: 400;
       line-height: 1.2;
       margin-bottom: 12px;
-    }
-    header h1 em {
-      font-style: italic;
-      color: var(--green-100);
     }
     .header-meta {
       font-size: 13px;
@@ -213,15 +209,6 @@
       border-top: 1px solid var(--border);
       margin: 56px 0;
     }
-    .lang-label {
-      text-align: center;
-      font-family: 'DM Serif Display', serif;
-      font-size: 13px;
-      color: var(--ink-faint);
-      letter-spacing: 0.08em;
-      margin-bottom: 40px;
-    }
-
     /* Footer */
     footer {
       text-align: center;
@@ -235,9 +222,6 @@
     .section-en { display: block; }
     body.ko-only .section-en { display: none; }
     body.en-only .section-ko { display: none; }
-    body.ko-only .divider-lang { display: none; }
-    body.ko-only .lang-label { display: none; }
-    body.en-only .lang-label { display: none; }
 
     @media (max-width: 600px) {
       .data-table { font-size: 13px; }
@@ -245,28 +229,151 @@
     }
   </style>
 </head>
-<body>
+<body class="en-only">
 
 <header>
   <div class="logo-mark">
     <div class="logo-icon">🌱</div>
     <span class="logo-name">Sprig</span>
   </div>
-  <h1>개인정보처리방침<br><em>Privacy Policy</em></h1>
-  <p class="header-meta">시행일 · Effective Date: 2025년 1월 1일 · January 1, 2025</p>
+  <h1>Privacy Policy</h1>
+  <p class="header-meta">Effective Date: January 1, 2025</p>
 </header>
 
-<nav class="lang-toggle" aria-label="언어 선택">
-  <button class="lang-btn active" onclick="setLang('all')">한국어 + English</button>
-  <button class="lang-btn" onclick="setLang('ko')">한국어만</button>
-  <button class="lang-btn" onclick="setLang('en')">English only</button>
+<nav class="lang-toggle" aria-label="Language">
+  <button class="lang-btn active" onclick="setLang('en')">English</button>
+  <button class="lang-btn" onclick="setLang('ko')">Korean</button>
 </nav>
 
 <div class="container">
 
+  <!-- ───────────── English ───────────── -->
+  <div class="section-en">
+
+    <div class="policy-section">
+      <span class="section-number">01</span>
+      <h2>Overview</h2>
+      <p>Sprig ("the App") is committed to protecting your privacy and complying with applicable data protection laws, including Korea's Personal Information Protection Act (PIPA). This policy explains what information we collect, why we collect it, how it is stored, and your rights as a user.</p>
+      <div class="callout">
+        <strong>Our core promise:</strong> Sprig shows no ads and never sells your data to third parties.
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">02</span>
+      <h2>Information We Collect</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Data</th><th>How collected</th><th>Stored</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Routine &amp; habit data<br><small>(routine names, check-ins, stats)</small></td>
+            <td>User input</td>
+            <td><span class="badge">On-device</span></td>
+            <td>Core functionality</td>
+          </tr>
+          <tr>
+            <td>Notification settings</td>
+            <td>User preference</td>
+            <td><span class="badge">On-device</span></td>
+            <td>Send reminders</td>
+          </tr>
+          <tr>
+            <td>Cloud-synced data</td>
+            <td>Optional opt-in</td>
+            <td><span class="badge">Google Cloud</span></td>
+            <td>Cross-device sync</td>
+          </tr>
+          <tr>
+            <td>App usage analytics<br><small>(events, sessions, crash logs)</small></td>
+            <td>Automatic</td>
+            <td><span class="badge">Firebase servers</span></td>
+            <td>Service improvement</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>We do not collect identifiable personal information such as your name, email address, phone number, or location.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">03</span>
+      <h2>Third-Party Services</h2>
+      <p>The App uses the following third-party services. Each has its own privacy policy that governs how data is handled on their end.</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Service</th><th>Provider</th><th>Purpose</th><th>Policy</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Firebase Analytics</td>
+            <td>Google LLC</td>
+            <td>Usage analytics &amp; crash tracking</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank">View →</a></td>
+          </tr>
+          <tr>
+            <td>Google Cloud</td>
+            <td>Google LLC</td>
+            <td>Data sync (optional)</td>
+            <td><a href="https://policies.google.com/privacy" target="_blank">View →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">04</span>
+      <h2>Data Retention &amp; Deletion</h2>
+      <p>On-device data is immediately deleted when you uninstall the App. Analytics data collected via Firebase is retained according to Google's default retention period (14 months). Cloud-synced data can be removed by disconnecting your account or using the delete function within the App.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">05</span>
+      <h2>Your Rights</h2>
+      <table class="data-table">
+        <thead><tr><th>Right</th><th>How to exercise</th></tr></thead>
+        <tbody>
+          <tr><td>Access &amp; correction</td><td>Directly within the App</td></tr>
+          <tr><td>Deletion</td><td>Uninstall the App or email us</td></tr>
+          <tr><td>Opt out of analytics</td><td>iOS: Settings → Privacy → Tracking; Android: Reset Advertising ID</td></tr>
+          <tr><td>Disconnect cloud sync</td><td>App Settings → disconnect account</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">06</span>
+      <h2>Children's Privacy</h2>
+      <p>Sprig is not directed at children under 14. We do not knowingly collect data from children. If we become aware that a child's data has been collected, we will delete it immediately.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">07</span>
+      <h2>In-App Purchases &amp; Subscriptions (Planned)</h2>
+      <div class="callout">
+        The App is currently free. When Sprig+ subscriptions and in-app purchases are introduced, all payment transactions will be processed exclusively by Apple App Store or Google Play. We will not directly collect or store any payment information. This policy will be updated and users notified in advance.
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">08</span>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this policy in response to legal changes or service updates. Changes will be communicated through App release notes and this page. Material changes will also be notified via in-app alerts.</p>
+    </div>
+
+    <div class="policy-section">
+      <span class="section-number">09</span>
+      <h2>Contact Us</h2>
+      <div class="contact-card">
+        <h3>Privacy Inquiries</h3>
+        <p>Email: <a href="mailto:orvenstudio.contact@gmail.com">orvenstudio.contact@gmail.com</a></p>
+        <p style="margin-top:8px;">We aim to respond within 7 business days.</p>
+      </div>
+    </div>
+  </div><!-- /section-en -->
+
   <!-- ───────────── 한국어 ───────────── -->
   <div class="section-ko">
-    <div class="lang-label">— 한국어 —</div>
 
     <div class="policy-section">
       <span class="section-number">01</span>
@@ -385,144 +492,16 @@
       <h2>문의</h2>
       <div class="contact-card">
         <h3>개인정보 관련 문의</h3>
-        <p>이메일: <a href="mailto:privacy@example.com">privacy@example.com</a> <em style="color:rgba(255,255,255,0.4);font-size:12px;">(실제 이메일로 교체 필요)</em></p>
+        <p>이메일: <a href="mailto:orvenstudio.contact@gmail.com">orvenstudio.contact@gmail.com</a></p>
         <p style="margin-top:8px;">문의 접수 후 영업일 기준 7일 이내 답변드립니다.</p>
       </div>
     </div>
   </div><!-- /section-ko -->
 
-  <hr class="divider divider-lang"/>
-
-  <!-- ───────────── English ───────────── -->
-  <div class="section-en">
-    <div class="lang-label">— English —</div>
-
-    <div class="policy-section">
-      <span class="section-number">01</span>
-      <h2>Overview</h2>
-      <p>Sprig ("the App") is committed to protecting your privacy and complying with applicable data protection laws, including Korea's Personal Information Protection Act (PIPA). This policy explains what information we collect, why we collect it, how it is stored, and your rights as a user.</p>
-      <div class="callout">
-        <strong>Our core promise:</strong> Sprig shows no ads and never sells your data to third parties.
-      </div>
-    </div>
-
-    <div class="policy-section">
-      <span class="section-number">02</span>
-      <h2>Information We Collect</h2>
-      <table class="data-table">
-        <thead>
-          <tr><th>Data</th><th>How collected</th><th>Stored</th><th>Purpose</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Routine &amp; habit data<br><small>(routine names, check-ins, stats)</small></td>
-            <td>User input</td>
-            <td><span class="badge">On-device</span></td>
-            <td>Core functionality</td>
-          </tr>
-          <tr>
-            <td>Notification settings</td>
-            <td>User preference</td>
-            <td><span class="badge">On-device</span></td>
-            <td>Send reminders</td>
-          </tr>
-          <tr>
-            <td>Cloud-synced data</td>
-            <td>Optional opt-in</td>
-            <td><span class="badge">Google Cloud</span></td>
-            <td>Cross-device sync</td>
-          </tr>
-          <tr>
-            <td>App usage analytics<br><small>(events, sessions, crash logs)</small></td>
-            <td>Automatic</td>
-            <td><span class="badge">Firebase servers</span></td>
-            <td>Service improvement</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>We do not collect identifiable personal information such as your name, email address, phone number, or location.</p>
-    </div>
-
-    <div class="policy-section">
-      <span class="section-number">03</span>
-      <h2>Third-Party Services</h2>
-      <p>The App uses the following third-party services. Each has its own privacy policy that governs how data is handled on their end.</p>
-      <table class="data-table">
-        <thead>
-          <tr><th>Service</th><th>Provider</th><th>Purpose</th><th>Policy</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Firebase Analytics</td>
-            <td>Google LLC</td>
-            <td>Usage analytics &amp; crash tracking</td>
-            <td><a href="https://firebase.google.com/support/privacy" target="_blank">View →</a></td>
-          </tr>
-          <tr>
-            <td>Google Cloud</td>
-            <td>Google LLC</td>
-            <td>Data sync (optional)</td>
-            <td><a href="https://policies.google.com/privacy" target="_blank">View →</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="policy-section">
-      <span class="section-number">04</span>
-      <h2>Data Retention &amp; Deletion</h2>
-      <p>On-device data is immediately deleted when you uninstall the App. Analytics data collected via Firebase is retained according to Google's default retention period (14 months). Cloud-synced data can be removed by disconnecting your account or using the delete function within the App.</p>
-    </div>
-
-    <div class="policy-section">
-      <span class="section-number">05</span>
-      <h2>Your Rights</h2>
-      <table class="data-table">
-        <thead><tr><th>Right</th><th>How to exercise</th></tr></thead>
-        <tbody>
-          <tr><td>Access &amp; correction</td><td>Directly within the App</td></tr>
-          <tr><td>Deletion</td><td>Uninstall the App or email us</td></tr>
-          <tr><td>Opt out of analytics</td><td>iOS: Settings → Privacy → Tracking; Android: Reset Advertising ID</td></tr>
-          <tr><td>Disconnect cloud sync</td><td>App Settings → disconnect account</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="policy-section">
-      <span class="section-number">06</span>
-      <h2>Children's Privacy</h2>
-      <p>Sprig is not directed at children under 14. We do not knowingly collect data from children. If we become aware that a child's data has been collected, we will delete it immediately.</p>
-    </div>
-
-    <div class="policy-section">
-      <span class="section-number">07</span>
-      <h2>In-App Purchases &amp; Subscriptions (Planned)</h2>
-      <div class="callout">
-        The App is currently free. When Sprig+ subscriptions and in-app purchases are introduced, all payment transactions will be processed exclusively by Apple App Store or Google Play. We will not directly collect or store any payment information. This policy will be updated and users notified in advance.
-      </div>
-    </div>
-
-    <div class="policy-section">
-      <span class="section-number">08</span>
-      <h2>Changes to This Policy</h2>
-      <p>We may update this policy in response to legal changes or service updates. Changes will be communicated through App release notes and this page. Material changes will also be notified via in-app alerts.</p>
-    </div>
-
-    <div class="policy-section">
-      <span class="section-number">09</span>
-      <h2>Contact Us</h2>
-      <div class="contact-card">
-        <h3>Privacy Inquiries</h3>
-        <p>Email: <a href="mailto:privacy@example.com">privacy@example.com</a> <em style="color:rgba(255,255,255,0.4);font-size:12px;">(replace with your actual email)</em></p>
-        <p style="margin-top:8px;">We aim to respond within 7 business days.</p>
-      </div>
-    </div>
-  </div><!-- /section-en -->
-
 </div><!-- /container -->
 
 <footer>
-  &copy; 2025 Sprig · 최종 업데이트 · Last updated: 2025-01-01
+  &copy; 2025 Sprig · Last updated: 2025-01-01
 </footer>
 
 <script>
@@ -532,10 +511,8 @@
     if (lang === 'ko') {
       document.body.classList.add('ko-only');
       document.querySelectorAll('.lang-btn')[1].classList.add('active');
-    } else if (lang === 'en') {
-      document.body.classList.add('en-only');
-      document.querySelectorAll('.lang-btn')[2].classList.add('active');
     } else {
+      document.body.classList.add('en-only');
       document.querySelectorAll('.lang-btn')[0].classList.add('active');
     }
   }
