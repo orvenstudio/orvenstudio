@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이용약관 — Sprig</title>
+
+  <!--
+  ┌─────────────────────────────────────────────────────────────┐
+  │  ORVEN STUDIO · 법적 문서 템플릿 v1.0                        │
+  │  재사용 시 아래 변수 블록만 수정하세요.                        │
+  └─────────────────────────────────────────────────────────────┘
+
+  [TEMPLATE VARIABLES]
+  {{APP_NAME}}          = Sprig
+  {{STUDIO_NAME}}       = ORVEN Studio
+  {{CONTACT_EMAIL}}     = orvenstudio.contact@gmail.com
+  {{TERMS_URL}}         = https://orvenstudio.github.io/orvenstudio/sprig/terms-of-service.html
+  {{EFFECTIVE_DATE}}    = 2026년 4월 23일
+  {{VERSION}}           = 1.1.0
+
+  [APP-SPECIFIC CHECKLIST]
+  - 무료 기본 기능    : ✅
+  - 프리미엄 구독     : ✅ (현재 숨김, 추후 활성화)
+  - 광고             : ❌
+  - 사용자 생성 콘텐츠: 일기(diary) — 기기 내 저장, 서버 미전송
+  - 플랫폼           : iOS (App Store) + Android (Google Play)
+  -->
+
+  <style>
+    :root {
+      --primary:        #5A9E7C;
+      --primary-light:  #E8F5EE;
+      --primary-dark:   #3D7A5C;
+      --bg:             #F7F6F3;
+      --surface:        #FFFFFF;
+      --surface2:       #F2F1EE;
+      --text1:          #1C1C1E;
+      --text2:          #6B6B70;
+      --text3:          #AEAEB2;
+      --border:         #E5E5EA;
+      --radius:         14px;
+      --radius-sm:      10px;
+      --font:           -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans KR', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text1);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    .doc-header { display: flex; flex-direction: column; gap: 8px; margin-bottom: 40px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--primary-light); color: var(--primary-dark);
+      font-size: 12px; font-weight: 600; padding: 4px 10px;
+      border-radius: 999px; width: fit-content;
+    }
+    .doc-title { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+    .doc-meta { font-size: 13px; color: var(--text3); }
+    .doc-meta span { margin-right: 16px; }
+
+    .toc {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 24px; margin-bottom: 40px;
+    }
+    .toc h3 {
+      font-size: 13px; font-weight: 600; color: var(--text3);
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;
+    }
+    .toc ol { padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+    .toc a { color: var(--primary); text-decoration: none; font-size: 14px; }
+    .toc a:hover { text-decoration: underline; }
+
+    .section {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; margin-bottom: 16px;
+    }
+    .section-number {
+      font-size: 11px; font-weight: 700; color: var(--primary);
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+    }
+    .section h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+    .section h3 { font-size: 15px; font-weight: 600; color: var(--text1); margin: 20px 0 8px; }
+    .section p { color: var(--text2); margin-bottom: 12px; }
+    .section p:last-child { margin-bottom: 0; }
+
+    .terms-list {
+      list-style: none; display: flex; flex-direction: column; gap: 10px;
+    }
+    .terms-list li {
+      display: flex; gap: 10px; color: var(--text2); font-size: 14px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    }
+    .terms-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .terms-list li::before {
+      content: '›'; color: var(--primary); font-weight: 700; flex-shrink: 0;
+    }
+
+    .highlight {
+      background: var(--surface2); border-left: 3px solid var(--primary);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 12px 16px; margin: 12px 0; font-size: 14px; color: var(--text2);
+    }
+    .warning {
+      background: #FFF8E1; border-left: 3px solid #F9A825;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 12px 16px; margin: 12px 0; font-size: 14px; color: #5D4037;
+    }
+
+    .plan-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;
+    }
+    @media (max-width: 480px) { .plan-grid { grid-template-columns: 1fr; } }
+    .plan-card {
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 16px; font-size: 14px;
+    }
+    .plan-card.featured { border-color: var(--primary); background: var(--primary-light); }
+    .plan-title { font-weight: 700; margin-bottom: 8px; color: var(--text1); }
+    .plan-card.featured .plan-title { color: var(--primary-dark); }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .plan-features li { color: var(--text2); }
+    .plan-features li::before { content: '• '; color: var(--primary); }
+
+    .contact-card {
+      background: var(--primary-light); border-radius: var(--radius);
+      padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start;
+    }
+    .contact-icon { font-size: 28px; flex-shrink: 0; }
+    .contact-info p { color: var(--text2); font-size: 14px; margin: 0; }
+    .contact-info a { color: var(--primary-dark); font-weight: 600; text-decoration: none; }
+    .contact-info a:hover { text-decoration: underline; }
+
+    .doc-footer { margin-top: 48px; text-align: center; font-size: 13px; color: var(--text3); }
+    .doc-footer a { color: var(--text3); text-decoration: underline; }
+
+    .lang-toggle { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 24px; }
+    .lang-btn {
+      padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;
+      cursor: pointer; border: 1.5px solid var(--border); background: var(--surface);
+      color: var(--text2); transition: all 0.15s;
+    }
+    .lang-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    [lang-content="ko"] { display: none; }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+
+  <!-- Language Toggle -->
+  <div class="lang-toggle">
+    <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">English</button>
+  </div>
+
+  <!-- ───────────── KOREAN ───────────── -->
+  <div lang-content="ko">
+
+    <div class="doc-header">
+      <span class="badge">🌿 Sprig</span>
+      <h1 class="doc-title">이용약관</h1>
+      <div class="doc-meta">
+        <span>시행일: 2026년 4월 23일</span>
+        <span>버전: 1.1.0</span>
+        <span>운영자: ORVEN Studio</span>
+      </div>
+    </div>
+
+    <div class="toc">
+      <h3>목차</h3>
+      <ol>
+        <li><a href="#ko-t1">총칙 및 약관 동의</a></li>
+        <li><a href="#ko-t2">서비스 내용</a></li>
+        <li><a href="#ko-t3">프리미엄 구독</a></li>
+        <li><a href="#ko-t4">이용자의 의무</a></li>
+        <li><a href="#ko-t5">지식재산권</a></li>
+        <li><a href="#ko-t6">면책 및 책임 제한</a></li>
+        <li><a href="#ko-t7">서비스 변경 및 종료</a></li>
+        <li><a href="#ko-t8">준거법 및 분쟁 해결</a></li>
+        <li><a href="#ko-t9">약관 변경</a></li>
+        <li><a href="#ko-t10">문의</a></li>
+      </ol>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section" id="ko-t1">
+      <div class="section-number">Section 01</div>
+      <h2>총칙 및 약관 동의</h2>
+      <p>본 이용약관("약관")은 ORVEN Studio("운영자")가 제공하는 모바일 앱 <strong>Sprig</strong>("서비스")의 이용에 관한 조건 및 절차를 규정합니다.</p>
+      <p>앱을 다운로드하거나 사용함으로써 본 약관에 동의한 것으로 간주합니다. 동의하지 않으시면 앱을 사용하지 마세요.</p>
+      <div class="highlight">본 약관은 한국 소비자기본법, 전자상거래법, 정보통신망법 등 관련 법령을 준수합니다.</div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section" id="ko-t2">
+      <div class="section-number">Section 02</div>
+      <h2>서비스 내용</h2>
+      <p>Sprig은 루틴 트래킹, 컨디션 로깅, 통계 시각화를 제공하는 개인 생산성 앱입니다.</p>
+
+      <div class="plan-grid">
+        <div class="plan-card">
+          <div class="plan-title">🌱 무료 플랜</div>
+          <ul class="plan-features">
+            <li>루틴 생성 및 관리</li>
+            <li>코어 루틴 트래킹</li>
+            <li>컨디션 로깅</li>
+            <li>월간 · 연간 통계</li>
+            <li>일기 작성</li>
+            <li>데이터 내보내기 / 가져오기 (JSON)</li>
+            <li>루틴 알림</li>
+          </ul>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-title">✨ Sprig+ (프리미엄, 준비 중)</div>
+          <ul class="plan-features">
+            <li>클라우드 백업 (iOS: iCloud / Android: Google Drive)</li>
+            <li>테마 갤러리</li>
+            <li>커스텀 이모지 세트</li>
+            <li>홈 위젯</li>
+            <li>스트릭 보호</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>서비스는 오프라인에서도 완전히 동작합니다. 인터넷 연결은 클라우드 백업 및 버전 확인에만 사용됩니다.</p>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section" id="ko-t3">
+      <div class="section-number">Section 03</div>
+      <h2>프리미엄 구독</h2>
+      <div class="warning">⚠️ <strong>현재 프리미엄 기능(Sprig+)은 제공되지 않습니다.</strong> 프리미엄 기능이 도입되는 시점에 본 약관이 별도로 개정되며, 이용자는 개정 약관에 동의해야 해당 기능을 이용하실 수 있습니다. 아래 조항은 프리미엄 기능 활성화 시 적용될 예정인 조건을 참고 목적으로 기재한 것입니다.</div>
+
+      <h3>결제 및 갱신</h3>
+      <ul class="terms-list">
+        <li>구독은 월간 또는 연간 단위로 제공되며, App Store 또는 Google Play를 통해 결제됩니다.</li>
+        <li>구독은 현재 기간 종료 24시간 전까지 취소하지 않으면 자동 갱신됩니다.</li>
+        <li>갱신 요금은 갱신 24시간 전에 결제 계정에서 청구됩니다.</li>
+      </ul>
+
+      <h3>취소 및 환불</h3>
+      <ul class="terms-list">
+        <li>구독 취소는 App Store(iOS) 또는 Google Play(Android) 설정에서 직접 진행하세요.</li>
+        <li>취소 후에도 현재 구독 기간이 종료될 때까지 프리미엄 기능을 이용할 수 있습니다.</li>
+        <li>환불은 각 플랫폼(Apple / Google)의 환불 정책을 따릅니다. 운영자는 플랫폼이 처리하는 결제·환불에 대해 직접 환불을 제공할 기술적 수단이 없습니다.</li>
+      </ul>
+
+      <h3>한국 소비자의 청약철회권</h3>
+      <p>「전자상거래 등에서의 소비자보호에 관한 법률」에 따라, 한국 거주 소비자는 계약 체결일 또는 상품 이용 가능일로부터 <strong>7일 이내에 청약철회</strong>를 할 수 있습니다. 다만 같은 법 제17조 제2항 및 시행령 제21조에 따라, <strong>디지털콘텐츠가 제공 즉시 이용에 제공된 경우에는 철회권이 제한될 수 있습니다</strong>. 청약철회 요청은 플랫폼(Apple · Google)의 절차를 통해 진행하시거나 아래 문의 이메일로 접수해 주세요.</p>
+
+      <div class="warning">⚠️ 구독 관련 결제는 운영자가 아닌 Apple / Google이 처리합니다. 결제·환불 문제는 우선 각 플랫폼 고객센터에 문의하시고, 해결되지 않을 경우 운영자 이메일로 연락해 주세요.</div>
+
+      <h3>무료 체험</h3>
+      <p>무료 체험 기간이 제공되는 경우, 체험 기간 종료 전에 취소하지 않으면 자동으로 유료 구독으로 전환됩니다.</p>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section" id="ko-t4">
+      <div class="section-number">Section 04</div>
+      <h2>이용자의 의무</h2>
+      <p>이용자는 다음 행위를 하지 않아야 합니다.</p>
+      <ul class="terms-list">
+        <li>앱 또는 서버를 역설계, 분해, 역컴파일하거나 소스 코드를 추출하려는 행위</li>
+        <li>앱의 보안 기능을 우회하거나 무력화하려는 행위</li>
+        <li>자동화 도구를 사용하여 서비스를 비정상적으로 이용하는 행위</li>
+        <li>타인의 계정 정보를 도용하거나 허위 정보를 입력하는 행위</li>
+        <li>관련 법령을 위반하는 방식으로 서비스를 이용하는 행위</li>
+      </ul>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section" id="ko-t5">
+      <div class="section-number">Section 05</div>
+      <h2>지식재산권</h2>
+      <p>앱 내의 모든 콘텐츠(디자인, 텍스트, 아이콘, 로고, 코드 등)에 대한 지식재산권은 ORVEN Studio에 귀속됩니다.</p>
+      <p>이용자가 앱에 입력한 루틴, 일기 등 사용자 데이터에 대한 권리는 이용자에게 있습니다. 운영자는 해당 데이터를 서버에 저장하거나 마케팅 목적으로 사용하지 않습니다.</p>
+      <p>본 약관은 앱을 개인적, 비상업적 목적으로 사용할 수 있는 제한적·비독점적·양도불가 라이선스를 부여합니다.</p>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section" id="ko-t6">
+      <div class="section-number">Section 06</div>
+      <h2>면책 및 책임 제한</h2>
+
+      <h3>서비스 현황</h3>
+      <p>서비스는 "있는 그대로(as-is)" 제공됩니다. 운영자는 서비스의 무중단, 오류 없는 작동, 특정 목적 적합성을 명시적으로 보증하지 않습니다.</p>
+
+      <h3>데이터 손실</h3>
+      <p>기기 분실, 초기화, 소프트웨어 오류 등으로 인한 데이터 손실에 대해 운영자는 책임을 지지 않습니다. 중요 데이터는 JSON 내보내기 기능 또는 클라우드 백업(프리미엄)을 통해 주기적으로 백업하실 것을 권장합니다.</p>
+
+      <h3>제3자 서비스</h3>
+      <p>Firebase, Google 등 제3자 서비스의 장애, 데이터 처리 방식에 대해 운영자는 책임을 지지 않습니다.</p>
+
+      <h3>책임 범위</h3>
+      <p>관련 법령이 허용하는 최대 범위 내에서, 운영자의 책임은 이용자가 청구 발생일로부터 최근 12개월간 납부한 구독료를 초과하지 않습니다.</p>
+      <p><strong>단, 운영자의 고의 또는 중대한 과실로 발생한 손해, 생명·신체상 손해, 그 밖에 관계 법령상 면책할 수 없는 책임에 대해서는 위 제한이 적용되지 않습니다.</strong></p>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="section" id="ko-t7">
+      <div class="section-number">Section 07</div>
+      <h2>서비스 변경 및 종료</h2>
+      <p>운영자는 기술적·운영상 필요에 따라 서비스의 전부 또는 일부를 변경할 수 있으며, 이 경우 변경 내용과 시행일을 앱 내 공지 또는 이메일을 통해 합리적인 기간 전에 안내합니다. 긴급한 보안·장애 대응 등 사전 고지가 곤란한 경우에는 사후 지체 없이 안내드립니다.</p>
+      <p>유료 서비스의 중요한 변경은 시행 30일 전에 공지합니다. 서비스를 종료하는 경우, 유료 구독자에게는 종료일로부터 잔여 기간에 해당하는 요금을 환불합니다.</p>
+    </div>
+
+    <!-- Section 8 -->
+    <div class="section" id="ko-t8">
+      <div class="section-number">Section 08</div>
+      <h2>준거법 및 분쟁 해결</h2>
+      <p>본 약관은 대한민국 법률을 준거법으로 합니다. 서비스 이용과 관련된 분쟁은 먼저 이메일을 통해 우호적으로 해결하도록 노력합니다.</p>
+      <p>협의가 이루어지지 않아 소송으로 이어지는 경우, 관할 법원은 민사소송법상 관할 규정에 따릅니다. <strong>한국 거주 소비자는 제소 당시의 자신의 주소지 또는 거소지를 관할하는 법원에도 소를 제기할 수 있습니다.</strong></p>
+      <p>한국 외 지역에서 서비스를 이용하는 경우, 해당 지역의 강행법규상 소비자 보호 규정이 추가로 적용될 수 있습니다.</p>
+    </div>
+
+    <!-- Section 9 -->
+    <div class="section" id="ko-t9">
+      <div class="section-number">Section 09</div>
+      <h2>약관 변경</h2>
+      <p>운영자는 약관을 변경할 수 있으며, 변경 시 이 페이지에 게시하고 앱 내 또는 이메일로 사전 안내합니다. 중요한 변경은 시행 30일 전에 공지합니다.</p>
+      <p>변경된 약관의 효력 발생일 이후 서비스를 계속 이용하면 변경된 약관에 동의한 것으로 봅니다. <strong>다만 이용자의 권리·의무에 중대한 영향을 미치는 변경(예: 결제 조건, 책임 범위, 개인정보 처리 방식의 변경)에 대해서는 앱 내 별도 동의 절차를 통해 명시적 동의를 받습니다.</strong></p>
+    </div>
+
+    <!-- Section 10 -->
+    <div class="section" id="ko-t10">
+      <div class="section-number">Section 10</div>
+      <h2>문의</h2>
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-info">
+          <p><strong>ORVEN Studio</strong></p>
+          <p>약관 관련 문의, 구독 문제, 기타 서비스 이슈</p>
+          <p style="margin-top:8px"><a href="mailto:orvenstudio.contact@gmail.com">orvenstudio.contact@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /ko -->
+
+
+  <!-- ───────────── ENGLISH ───────────── -->
+  <div lang-content="en">
+
+    <div class="doc-header">
+      <span class="badge">🌿 Sprig</span>
+      <h1 class="doc-title">Terms of Service</h1>
+      <div class="doc-meta">
+        <span>Effective: April 23, 2026</span>
+        <span>Version: 1.1.0</span>
+        <span>Developer: ORVEN Studio</span>
+      </div>
+    </div>
+
+    <div class="toc">
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#en-t1">Acceptance of Terms</a></li>
+        <li><a href="#en-t2">Service Description</a></li>
+        <li><a href="#en-t3">Premium Subscription</a></li>
+        <li><a href="#en-t4">User Responsibilities</a></li>
+        <li><a href="#en-t5">Intellectual Property</a></li>
+        <li><a href="#en-t6">Disclaimer &amp; Limitation of Liability</a></li>
+        <li><a href="#en-t7">Service Changes &amp; Termination</a></li>
+        <li><a href="#en-t8">Governing Law &amp; Disputes</a></li>
+        <li><a href="#en-t9">Changes to Terms</a></li>
+        <li><a href="#en-t10">Apple-Specific Terms</a></li>
+        <li><a href="#en-t11">Contact</a></li>
+      </ol>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section" id="en-t1">
+      <div class="section-number">Section 01</div>
+      <h2>Acceptance of Terms</h2>
+      <p>These Terms of Service ("Terms") govern your use of <strong>Sprig</strong> ("Service"), a mobile application developed by ORVEN Studio ("we", "us", "our").</p>
+      <p>By downloading or using the app, you agree to these Terms. If you do not agree, please do not use the app.</p>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section" id="en-t2">
+      <div class="section-number">Section 02</div>
+      <h2>Service Description</h2>
+      <p>Sprig is a personal productivity app for routine tracking, condition logging, and habit visualization.</p>
+      <div class="plan-grid">
+        <div class="plan-card">
+          <div class="plan-title">🌱 Free Plan</div>
+          <ul class="plan-features">
+            <li>Unlimited routine management</li>
+            <li>Core routine tracking</li>
+            <li>Condition logging</li>
+            <li>Monthly &amp; yearly stats</li>
+            <li>Diary entries</li>
+            <li>JSON data export / import</li>
+            <li>Routine notifications</li>
+          </ul>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-title">✨ Sprig+ (coming soon)</div>
+          <ul class="plan-features">
+            <li>Cloud backup (iOS: iCloud / Android: Google Drive)</li>
+            <li>Theme gallery</li>
+            <li>Custom emoji sets</li>
+            <li>Home widget</li>
+            <li>Streak protection</li>
+          </ul>
+        </div>
+      </div>
+      <p>The app works fully offline. An internet connection is only required for cloud backup and version checks.</p>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section" id="en-t3">
+      <div class="section-number">Section 03</div>
+      <h2>Premium Subscription</h2>
+      <div class="warning">⚠️ <strong>Premium features (Sprig+) are not currently available.</strong> When premium features are introduced, these Terms will be amended and your explicit agreement to the updated terms will be required before you can use them. The clauses below describe the conditions that will apply at that time, provided for reference.</div>
+      <h3>Billing &amp; Renewal</h3>
+      <ul class="terms-list">
+        <li>Subscriptions are billed monthly or annually via the App Store or Google Play.</li>
+        <li>Subscriptions auto-renew unless cancelled at least 24 hours before the end of the current period.</li>
+        <li>Your account will be charged for renewal within 24 hours prior to the end of the current period.</li>
+      </ul>
+      <h3>Cancellation &amp; Refunds</h3>
+      <ul class="terms-list">
+        <li>Cancel subscriptions through your App Store (iOS) or Google Play (Android) account settings.</li>
+        <li>Premium features remain accessible until the end of the current billing period after cancellation.</li>
+        <li>Refunds are subject to Apple's or Google's refund policies, as we do not have technical means to process refunds for platform-handled payments directly.</li>
+      </ul>
+      <h3>Korean Consumer Right of Withdrawal</h3>
+      <p>Consumers residing in Korea have a statutory right to withdraw from a purchase within <strong>seven (7) days</strong> under Article 17 of the Act on Consumer Protection in Electronic Commerce. Pursuant to the same Act and Article 21 of its Enforcement Decree, <strong>this right may be restricted for digital content that has already been made available for use</strong>. Withdrawal requests can be submitted through the platform's (Apple / Google) process or by emailing us at the address in Section 11.</p>
+      <div class="warning">⚠️ All billing is handled by Apple or Google, not by ORVEN Studio. For billing issues, contact the respective platform's support first; if unresolved, reach out to us by email.</div>
+      <h3>Free Trials</h3>
+      <p>If a free trial is offered, your subscription will automatically begin at the standard rate at the end of the trial unless cancelled beforehand.</p>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section" id="en-t4">
+      <div class="section-number">Section 04</div>
+      <h2>User Responsibilities</h2>
+      <p>You agree not to:</p>
+      <ul class="terms-list">
+        <li>Reverse engineer, decompile, or attempt to extract the source code of the app</li>
+        <li>Circumvent or disable any security features of the app</li>
+        <li>Use automated tools to access the service in an abnormal manner</li>
+        <li>Use another person's account credentials or provide false information</li>
+        <li>Use the service in any manner that violates applicable law</li>
+      </ul>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section" id="en-t5">
+      <div class="section-number">Section 05</div>
+      <h2>Intellectual Property</h2>
+      <p>All content within the app — including design, text, icons, logos, and code — is owned by ORVEN Studio and protected by copyright and intellectual property laws.</p>
+      <p>Your data (routines, diary entries, etc.) belongs to you. We do not store it on our servers or use it for marketing.</p>
+      <p>These Terms grant you a limited, non-exclusive, non-transferable license to use the app for personal, non-commercial purposes.</p>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section" id="en-t6">
+      <div class="section-number">Section 06</div>
+      <h2>Disclaimer &amp; Limitation of Liability</h2>
+      <h3>As-Is Service</h3>
+      <p>The service is provided "as is" without any warranty. We do not guarantee uninterrupted operation, freedom from errors, or fitness for a particular purpose.</p>
+      <h3>Data Loss</h3>
+      <p>We are not responsible for data loss caused by device loss, factory reset, or software failure. We strongly recommend using the JSON export feature or cloud backup (premium) regularly.</p>
+      <h3>Third-Party Services</h3>
+      <p>We are not responsible for outages or data handling by third-party services such as Firebase or Google.</p>
+      <h3>Liability Cap</h3>
+      <p>To the maximum extent permitted by law, our total liability shall not exceed the subscription fees you paid in the 12 months preceding the claim.</p>
+      <p><strong>The limitations above do not apply to damages caused by our gross negligence or willful misconduct, death or personal injury, or any liability that cannot be excluded or limited under applicable law.</strong></p>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="section" id="en-t7">
+      <div class="section-number">Section 07</div>
+      <h2>Service Changes &amp; Termination</h2>
+      <p>We may modify all or part of the service for technical or operational reasons. We will provide reasonable advance notice of such changes via in-app notice or email. Where prior notice is not feasible due to urgent security or incident response, we will notify you promptly thereafter.</p>
+      <p>For significant changes to paid features, we will provide at least 30 days' notice. If we discontinue the service, active premium subscribers will be refunded a pro-rated amount for the remaining subscription period.</p>
+    </div>
+
+    <!-- Section 8 -->
+    <div class="section" id="en-t8">
+      <div class="section-number">Section 08</div>
+      <h2>Governing Law &amp; Disputes</h2>
+      <p>These Terms are governed by the laws of the Republic of Korea. We will first attempt to resolve disputes amicably via email.</p>
+      <p>If litigation becomes necessary, venue shall be determined under the Korean Civil Procedure Act. <strong>A consumer residing in Korea may also bring an action in the court of their own domicile or residence at the time of filing.</strong></p>
+      <p>If you are located outside Korea, the mandatory consumer protection laws of your jurisdiction may additionally apply.</p>
+    </div>
+
+    <!-- Section 9 -->
+    <div class="section" id="en-t9">
+      <div class="section-number">Section 09</div>
+      <h2>Changes to Terms</h2>
+      <p>We may update these Terms at any time. Changes will be posted on this page with an updated effective date. For significant changes, we will notify you in-app or by email at least 30 days in advance.</p>
+      <p>Continued use of the app after the effective date constitutes acceptance of the updated Terms. <strong>However, for changes that materially affect your rights or obligations (such as changes to billing, limitation of liability, or personal-data handling), we will obtain your explicit consent through an in-app acceptance flow.</strong></p>
+    </div>
+
+    <!-- Section 10 -->
+    <div class="section" id="en-t10">
+      <div class="section-number">Section 10</div>
+      <h2>Apple-Specific Terms (iOS)</h2>
+      <p>The following applies when you obtain Sprig from the Apple App Store. These Terms are entered into between you and ORVEN Studio, and Apple Inc. ("Apple") is not a party to this agreement. ORVEN Studio, not Apple, is solely responsible for Sprig and its content.</p>
+      <ul class="terms-list">
+        <li><strong>No Apple warranty.</strong> Apple has no obligation to furnish any maintenance or support services with respect to Sprig. To the maximum extent permitted by applicable law, Apple has no warranty obligation whatsoever with respect to Sprig.</li>
+        <li><strong>Product claims.</strong> ORVEN Studio, not Apple, is responsible for addressing any claims by you or any third party relating to Sprig or your use of Sprig, including product liability, failure to conform to legal requirements, and consumer protection or similar claims.</li>
+        <li><strong>IP claims.</strong> In the event of any third-party claim that Sprig or your possession and use of Sprig infringes that third party's intellectual property rights, ORVEN Studio will be solely responsible for the investigation, defense, settlement, and discharge of such claim.</li>
+        <li><strong>Legal compliance.</strong> You represent and warrant that you are not located in a country subject to a U.S. Government embargo or designated as a "terrorist supporting" country, and that you are not listed on any U.S. Government list of prohibited or restricted parties.</li>
+        <li><strong>Third-party beneficiary.</strong> You acknowledge and agree that Apple and Apple's subsidiaries are third-party beneficiaries of these Terms, and that upon your acceptance of these Terms, Apple will have the right (and will be deemed to have accepted the right) to enforce these Terms against you as a third-party beneficiary.</li>
+      </ul>
+    </div>
+
+    <!-- Section 11 -->
+    <div class="section" id="en-t11">
+      <div class="section-number">Section 11</div>
+      <h2>Contact</h2>
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-info">
+          <p><strong>ORVEN Studio</strong></p>
+          <p>Terms inquiries, subscription issues, general support</p>
+          <p style="margin-top:8px"><a href="mailto:orvenstudio.contact@gmail.com">orvenstudio.contact@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /en -->
+
+  <!-- Footer EN -->
+  <div class="doc-footer" lang-content="en">
+    <p>© 2026 ORVEN Studio · <a href="./privacy-policy.html">Privacy Policy</a> · <a href="mailto:orvenstudio.contact@gmail.com">Contact</a></p>
+  </div>
+  <!-- Footer KO -->
+  <div class="doc-footer" lang-content="ko">
+    <p>© 2026 ORVEN Studio · <a href="./privacy-policy.html">개인정보처리방침</a> · <a href="mailto:orvenstudio.contact@gmail.com">문의</a></p>
+  </div>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[lang-content]').forEach(el => {
+      el.style.display = el.getAttribute('lang-content') === lang ? 'block' : 'none';
+    });
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+  }
+</script>
+</body>
+</html>
