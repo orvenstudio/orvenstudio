@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Sprig</title>
+  <meta name="description" content="Sprig support and frequently asked questions." />
+  <meta property="og:title" content="Sprig Support" />
+  <meta property="og:description" content="Help & FAQ for Sprig — Small Habit Tracker" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235A9E7C'/%3E%3Ctext x='50%25' y='52%25' text-anchor='middle' dominant-baseline='middle' font-size='20' fill='white'%3E🌱%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    /* ── Design Tokens (Sprig) ── */
+    :root {
+      --primary:        #5A9E7C;
+      --primary-light:  #E8F5EE;
+      --primary-dark:   #3D7A5C;
+      --bg:             #F7F6F3;
+      --surface:        #FFFFFF;
+      --surface2:       #F2F1EE;
+      --text1:          #1C1C1E;
+      --text2:          #6B6B70;
+      --text3:          #AEAEB2;
+      --border:         #E5E5EA;
+      --radius:         14px;
+      --radius-sm:      10px;
+      --font:           -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans KR', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text1);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    /* ── Layout ── */
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── Header ── */
+    .doc-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    .doc-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text1);
+    }
+    .doc-tagline {
+      font-size: 14px;
+      color: var(--text2);
+    }
+    .doc-meta {
+      font-size: 13px;
+      color: var(--text3);
+    }
+
+    /* ── Intro Card ── */
+    .intro-card {
+      background: var(--primary-light);
+      border: 1px solid #c6e6d5;
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: var(--primary-dark);
+    }
+
+    /* ── Section ── */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 16px;
+    }
+    .section-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text1);
+      margin-bottom: 16px;
+    }
+    .section p {
+      color: var(--text2);
+      margin-bottom: 12px;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    /* ── FAQ List (accordion) ── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .faq-list details {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-list details:last-child {
+      border-bottom: none;
+    }
+    .faq-list summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 36px 14px 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text1);
+      position: relative;
+      transition: color 0.15s;
+    }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after {
+      content: "+";
+      position: absolute;
+      right: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text3);
+      font-size: 22px;
+      font-weight: 300;
+      transition: transform 0.2s, color 0.15s;
+      line-height: 1;
+    }
+    .faq-list details[open] summary { color: var(--primary-dark); }
+    .faq-list details[open] summary::after {
+      content: "−";
+      color: var(--primary);
+    }
+    .faq-answer {
+      padding: 0 0 18px;
+      color: var(--text2);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .faq-answer p { margin-bottom: 8px; color: var(--text2); }
+    .faq-answer p:last-child { margin-bottom: 0; }
+
+    /* ── Contact Card ── */
+    .contact-card {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .contact-icon { font-size: 28px; flex-shrink: 0; line-height: 1; }
+    .contact-info p { color: var(--text2); font-size: 14px; margin: 0 0 6px; }
+    .contact-info p:last-child { margin: 6px 0 0; }
+    .contact-info a {
+      color: var(--primary-dark);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .contact-info a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    .doc-footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text3);
+    }
+    .doc-footer a { color: var(--text3); text-decoration: underline; }
+
+    /* ── Language Toggle ── */
+    .lang-toggle {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .lang-btn {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text2);
+      transition: all 0.15s;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    [lang-content="ko"] { display: none; }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- Language Toggle -->
+  <div class="lang-toggle">
+    <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">한국어</button>
+    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">English</button>
+  </div>
+
+  <!-- ───────────── KOREAN ───────────── -->
+  <div lang-content="ko">
+
+    <!-- Header -->
+    <div class="doc-header">
+      <span class="badge">🌿 Sprig</span>
+      <h1 class="doc-title">고객지원</h1>
+      <p class="doc-tagline">작은 시작, 조용한 변화</p>
+      <div class="doc-meta">
+        <span>최종 업데이트: 2026년 4월 23일</span>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="intro-card">
+      Sprig를 사용해 주셔서 감사해요. 자주 묻는 질문을 모았어요. 답을 찾지 못하셨다면 언제든 이메일로 알려주세요.
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="section">
+      <div class="section-number">Section 01</div>
+      <h2>자주 묻는 질문</h2>
+      <div class="faq-list">
+
+        <details>
+          <summary>루틴은 어떻게 추가하나요?</summary>
+          <div class="faq-answer">
+            <p>홈 화면 우측 상단의 메뉴에서 "루틴 관리"로 들어가세요. 우측 하단의 + 버튼으로 새 루틴을 추가할 수 있어요. 이름, 아이콘, 요일, 알림 시간을 설정한 뒤 저장하면 끝이에요.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>코어 루틴이 무엇인가요?</summary>
+          <div class="faq-answer">
+            <p>"이것 하나만 지켜도 오늘은 성공"이라고 정한 가장 중요한 루틴이에요. 코어 루틴은 홈 화면 상단에 크게 표시되고, 잔디 시각화에도 우선 반영됩니다.</p>
+            <p>설정 &gt; 코어 자동 지정을 켜면 가장 꾸준히 한 루틴이 자동으로 코어가 됩니다. 직접 지정하려면 루틴 관리 화면에서 별 아이콘을 탭하세요.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>데이터는 어디에 저장되나요?</summary>
+          <div class="faq-answer">
+            <p>모든 데이터는 기기 안의 로컬 데이터베이스(SQLite)에만 저장됩니다. 서버에 업로드되거나 외부로 전송되지 않아요. 사용 데이터를 추적하지 않고 제3자에게 판매하지 않습니다.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>다른 기기로 데이터를 옮길 수 있나요?</summary>
+          <div class="faq-answer">
+            <p>설정 &gt; 데이터 내보내기에서 모든 루틴·기록·일기를 JSON 파일로 저장할 수 있어요. 새 기기에서는 설정 &gt; 데이터 불러오기로 그 파일을 선택하면 복원됩니다.</p>
+            <p>주기적으로 백업을 추천드려요. iCloud Drive, Google Drive, 또는 본인의 메일함에 백업 파일을 보관하시면 안전합니다.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>알림이 오지 않아요</summary>
+          <div class="faq-answer">
+            <p>iOS 설정 &gt; 알림 &gt; Sprig에서 알림 권한이 켜져 있는지 확인해 주세요. 앱 안의 설정 &gt; 알림도 ON 상태여야 합니다.</p>
+            <p>방해 금지 모드, 집중 모드, 절전 모드가 켜져 있으면 알림이 표시되지 않을 수 있어요.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>언어를 바꾸려면?</summary>
+          <div class="faq-answer">
+            <p>설정 &gt; 언어에서 한국어 / English / 日本語 / 简体中文 / Español 중 선택할 수 있어요. 변경 후 즉시 적용됩니다.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>월간 보기의 첫 요일을 바꾸고 싶어요</summary>
+          <div class="faq-answer">
+            <p>설정 &gt; 월간 주 시작 요일에서 일요일 / 월요일 / 토요일 중 선택할 수 있어요. 통계와 공유 카드에 모두 반영됩니다.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>실수로 루틴을 삭제했어요</summary>
+          <div class="faq-answer">
+            <p>삭제된 루틴의 과거 기록은 보존됩니다. 통계 &gt; 루틴별 탭에서 🗑 칩이 붙은 항목으로 과거 데이터를 확인할 수 있어요.</p>
+            <p>완전히 같은 루틴을 새로 만들고 싶다면 동일한 이름·아이콘·요일로 다시 추가하시면 됩니다. 단, 과거 기록과 자동으로 연결되지는 않아요.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section">
+      <div class="section-number">Section 02</div>
+      <h2>문의</h2>
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-info">
+          <p><strong>ORVEN Studio</strong></p>
+          <p>저희는 모든 메일을 직접 읽어요. 답변까지 1-3 영업일 정도 걸릴 수 있어요.</p>
+          <p style="margin-top:8px"><a href="mailto:orvenstudio.contact@gmail.com">orvenstudio.contact@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /ko -->
+
+
+  <!-- ───────────── ENGLISH ───────────── -->
+  <div lang-content="en">
+
+    <!-- Header -->
+    <div class="doc-header">
+      <span class="badge">🌿 Sprig</span>
+      <h1 class="doc-title">Support</h1>
+      <p class="doc-tagline">Small starts, quiet growth</p>
+      <div class="doc-meta">
+        <span>Last updated: April 23, 2026</span>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="intro-card">
+      Thank you for using Sprig. Here are some common questions. If you don't find what you need, feel free to email us anytime.
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="section">
+      <div class="section-number">Section 01</div>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+
+        <details>
+          <summary>How do I add a routine?</summary>
+          <div class="faq-answer">
+            <p>Open the menu in the top-right of the home screen and select "Manage Routines". Tap the + button at the bottom-right to create a new routine. Set the name, icon, weekdays, and reminder time, then save.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is a core routine?</summary>
+          <div class="faq-answer">
+            <p>It's the single most important routine that defines a successful day for you. The core routine is shown prominently at the top of the home screen and reflected first in your grass visualization.</p>
+            <p>Enable Settings &gt; Auto-assign Core to let Sprig pick your most consistent routine automatically. To set it manually, tap the star icon in Manage Routines.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Where is my data stored?</summary>
+          <div class="faq-answer">
+            <p>All data is stored locally on your device in a SQLite database. Nothing is uploaded to a server or shared externally. We don't track usage and we don't sell to third parties.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I move my data to another device?</summary>
+          <div class="faq-answer">
+            <p>Go to Settings &gt; Export Data to save all routines, logs, and journal entries as a JSON file. On the new device, use Settings &gt; Import Data and select that file to restore everything.</p>
+            <p>We recommend backing up regularly. Keep the backup file in iCloud Drive, Google Drive, or your own email for safety.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Notifications aren't showing up</summary>
+          <div class="faq-answer">
+            <p>Check iOS Settings &gt; Notifications &gt; Sprig to make sure notifications are allowed. Also ensure Settings &gt; Notifications inside the app is turned on.</p>
+            <p>Do Not Disturb, Focus Mode, or Low Power Mode can suppress notifications.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I change the language?</summary>
+          <div class="faq-answer">
+            <p>Go to Settings &gt; Language and choose between Korean / English / Japanese / Simplified Chinese / Spanish. The change takes effect immediately.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I change the first day of the week?</summary>
+          <div class="faq-answer">
+            <p>Go to Settings &gt; First Day of Week and choose Sunday / Monday / Saturday. Stats and share cards will update accordingly.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>I accidentally deleted a routine</summary>
+          <div class="faq-answer">
+            <p>Past records of deleted routines are preserved. Open Stats &gt; By Routine and look for items with the 🗑 chip to see historical data.</p>
+            <p>To recreate the same routine, just add it again with the same name, icon, and weekdays. Note that it won't automatically link to the old records.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section">
+      <div class="section-number">Section 02</div>
+      <h2>Contact</h2>
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-info">
+          <p><strong>ORVEN Studio</strong></p>
+          <p>We read every message ourselves. Please allow 1-3 business days for a reply.</p>
+          <p style="margin-top:8px"><a href="mailto:orvenstudio.contact@gmail.com">orvenstudio.contact@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /en -->
+
+  <!-- Footer EN -->
+  <div class="doc-footer" lang-content="en">
+    <p>© 2026 ORVEN Studio · <a href="./privacy-policy.html">Privacy Policy</a> · <a href="./terms-of-service.html">Terms of Service</a> · <a href="mailto:orvenstudio.contact@gmail.com">Contact</a></p>
+  </div>
+  <!-- Footer KO -->
+  <div class="doc-footer" lang-content="ko">
+    <p>© 2026 ORVEN Studio · <a href="./privacy-policy.html">개인정보처리방침</a> · <a href="./terms-of-service.html">이용약관</a> · <a href="mailto:orvenstudio.contact@gmail.com">문의</a></p>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[lang-content]').forEach(el => {
+      el.style.display = el.getAttribute('lang-content') === lang ? 'block' : 'none';
+    });
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+  }
+</script>
+</body>
+</html>
