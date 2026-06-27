@@ -22,8 +22,8 @@
   {{STUDIO_NAME}}       = ORVEN Studio
   {{CONTACT_EMAIL}}     = orvenstudio.contact@gmail.com
   {{POLICY_URL}}        = https://orvenstudio.github.io/orvenstudio/sprig/privacy-policy.html
-  {{EFFECTIVE_DATE}}    = 2026년 4월 23일
-  {{VERSION}}           = 1.1.0
+  {{EFFECTIVE_DATE}}    = 2026년 6월 27일
+  {{VERSION}}           = 1.2.0
 
   [DATA COLLECTION CHECKLIST — 앱별 맞춤 필요]
   - Firebase Analytics  : ✅ 사용
@@ -333,8 +333,8 @@
       <span class="badge">🌿 Sprig</span>
       <h1 class="doc-title">개인정보처리방침</h1>
       <div class="doc-meta">
-        <span>시행일: 2026년 4월 23일</span>
-        <span>버전: 1.1.0</span>
+        <span>시행일: 2026년 6월 27일</span>
+        <span>버전: 1.2.0</span>
         <span>운영자: ORVEN Studio</span>
       </div>
     </div>
@@ -372,11 +372,12 @@
 
       <div class="highlight">
         <strong>필수 · 선택 구분</strong><br>
-        앱의 안정적 운영과 품질 개선을 위해 아래 1-2 항목(Firebase Analytics·Crashlytics 수집)은 <strong>서비스 제공에 필수</strong>이며, 이용자가 이를 거부하실 경우 서비스 이용이 제한될 수 있습니다. 1-3 항목(프리미엄 기능)은 이용자가 해당 기능을 활성화할 때만 수집되는 <strong>선택 항목</strong>이며, 거부하더라도 기본 기능 이용에는 제한이 없습니다.
+        앱의 안정적 운영과 품질 개선을 위해 아래 1-2 항목(Firebase Analytics·Crashlytics 수집)은 <strong>서비스 제공에 필수</strong>이며, 이용자가 이를 거부하실 경우 서비스 이용이 제한될 수 있습니다. 1-3 항목(프리미엄 기능)은 <strong>현재 준비 중</strong>이며, 향후 이용자가 해당 기능을 활성화할 때만 수집되는 <strong>선택 항목</strong>으로, 거부하더라도 기본 기능 이용에는 제한이 없습니다.
       </div>
 
       <h3>1-1. 앱 내에서 생성한 데이터</h3>
       <p>루틴 정보, 완료 기록, 컨디션 로그, 일기 등 사용자가 직접 입력하는 모든 데이터는 <strong>기기 내부(SQLite)</strong>에만 저장됩니다. 별도의 서버로 전송되지 않습니다.</p>
+      <p>홈 화면 위젯을 추가하시면 루틴·완료·컨디션·스트릭 요약이 기기 내 앱 그룹 저장소(group.com.orvenstudio.sprig)를 통해 위젯에 표시됩니다. 이 데이터는 네트워크로 전송되지 않고 기기 안에만 머뭅니다.</p>
 
       <h3>1-2. 자동 수집 데이터 (필수)</h3>
       <table class="data-table">
@@ -402,6 +403,12 @@
             <td>버그 수정</td>
           </tr>
           <tr>
+            <td>익명 기기 식별자 (Firebase Installation ID)</td>
+            <td>Firebase</td>
+            <td><span class="pill pill-remote">구글 서버</span></td>
+            <td>분석·크래시 보고 식별 (개인 식별 불가)</td>
+          </tr>
+          <tr>
             <td>알림 발송 시간 (로컬 알림)</td>
             <td>앱 내부</td>
             <td><span class="pill pill-local">기기 내부</span></td>
@@ -411,6 +418,7 @@
       </table>
 
       <div class="highlight">Firebase Analytics는 개인 식별 가능 정보를 수집하지 않으며, 집계된 통계만 처리합니다. Google의 데이터 처리 방침은 <a href="https://policies.google.com/privacy" style="color:var(--primary)">policies.google.com/privacy</a>를 참고하세요.</div>
+      <p style="font-size:13px; color:var(--text3)">모든 알림(루틴 리마인더, 동행·응원 알림 포함)은 기기에서 로컬로 예약되며, 서버 푸시(원격 알림)는 사용하지 않습니다.</p>
 
       <h3>1-3. 프리미엄 기능 사용 시 (선택)</h3>
       <table class="data-table">
@@ -447,25 +455,37 @@
       <p style="font-size:13px; color:var(--text3)">* 프리미엄 기능은 현재 준비 중이며, 활성화 전에 별도로 안내드립니다.</p>
 
       <h3>1-4. 자동수집장치(광고식별자)</h3>
-      <p>Firebase Analytics는 앱 사용 분석을 위해 기기의 광고 식별자(Android의 AAID, iOS의 IDFA)를 이용할 수 있습니다. 이용자는 언제든지 기기 설정에서 광고 식별자를 재설정하거나 광고 개인화를 거부할 수 있습니다.</p>
+      <p>Firebase Analytics는 <strong>Android</strong>에서 앱 사용 분석을 위해 기기의 광고 식별자(AAID)를 이용할 수 있습니다. 이용자는 언제든지 기기 설정에서 광고 식별자를 재설정하거나 광고 개인화를 거부할 수 있습니다. <strong>iOS</strong>에서는 광고 식별자(IDFA)를 사용하지 않으며, 앱이 추적(App Tracking Transparency) 대상이 아닙니다(개인정보 매니페스트상 추적 안 함, NSPrivacyTracking=false).</p>
       <ul class="rights-list">
         <li><strong>Android</strong> — 설정 → 개인정보 보호 → 광고 → "광고 ID 삭제" 또는 "맞춤 광고 선택 해제"</li>
-        <li><strong>iOS</strong> — 설정 → 개인정보 보호 및 보안 → 추적(App Tracking Transparency)에서 앱별 추적 허용/거부, 또는 설정 → 개인정보 보호 및 보안 → Apple 광고에서 개인 맞춤 광고 끄기</li>
+        <li><strong>iOS</strong> — Sprig은 IDFA를 수집하지 않으므로 별도의 추적 거부 설정이 필요하지 않습니다.</li>
       </ul>
+
+      <h3>1-5. 기기 권한 — 사진 라이브러리</h3>
+      <p>통계 카드를 이미지로 저장할 때만 기기의 사진 라이브러리 접근 권한을 요청합니다. 저장된 이미지는 기기에만 저장되며 외부로 전송되지 않습니다.</p>
+
+      <div class="highlight">앱은 시작 시 버전 정보·번역·루틴 추천 데이터를 Google Sheets에서 익명으로 내려받습니다(읽기 전용). 이 과정에서 이용자 데이터는 전송되지 않습니다.</div>
     </div>
 
     <!-- Section 2 -->
     <div class="section" id="ko-s2">
       <div class="section-number">Section 02</div>
       <h2>정보 이용 목적</h2>
-      <ul class="rights-list">
-        <li>앱 기능 제공 및 사용자 설정 저장</li>
-        <li>루틴 알림 발송 (사용자가 설정한 시간 기준)</li>
-        <li>앱 오류 감지 및 안정성 개선</li>
-        <li>사용 통계 분석을 통한 기능 개선</li>
-        <li>프리미엄 구독 확인 및 클라우드 백업 제공 (해당 시)</li>
-      </ul>
-      <div class="highlight">수집된 정보는 위 목적 이외에 사용되지 않으며, 제3자에게 판매되지 않습니다.</div>
+      <p>운영자는 아래 목적을 위해 이용자의 정보를 처리합니다. EEA / 영국 이용자를 위해 각 목적의 GDPR 법적 근거를 함께 표기합니다.</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>이용 목적</th><th>GDPR 법적 근거 (제6조)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>앱 기능 제공 및 사용자 설정 저장</td><td>계약의 이행 (제6조 제1항 b호)</td></tr>
+          <tr><td>사용자가 설정한 시간에 루틴 알림 발송</td><td>계약의 이행 (제6조 제1항 b호)</td></tr>
+          <tr><td>앱 오류 감지 및 안정성 개선</td><td>앱 신뢰성에 대한 정당한 이익 (제6조 제1항 f호)</td></tr>
+          <tr><td>집계된 사용 패턴 분석을 통한 기능 개선</td><td>제품 개선에 대한 정당한 이익 (제6조 제1항 f호)</td></tr>
+          <tr><td>프리미엄 구독 검증 및 클라우드 백업 제공 (해당 시)</td><td>계약의 이행 (제6조 제1항 b호) / 필요 시 동의 (제6조 제1항 a호)</td></tr>
+          <tr><td>법령상 의무 이행 (예: 세무, 적법한 정보 제공 요청 대응)</td><td>법적 의무 (제6조 제1항 c호)</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight">수집된 정보는 위 목적 이외에 사용되지 않으며, 제3자에게 판매되지 않습니다. 정당한 이익을 근거로 한 처리에 대해서는 이용자가 이의를 제기할 권리가 있습니다(제5조 참조).</div>
     </div>
 
     <!-- Section 3 -->
@@ -588,13 +608,13 @@
 
       <h3>보안 조치</h3>
       <ul class="rights-list">
-        <li>클라우드 백업 데이터는 AES-256 암호화 후 Google Drive에 저장됩니다</li>
+        <li>클라우드 백업 데이터는 업로드 전에 AES-256으로 암호화되어 Google Drive(Android) 또는 iCloud(iOS)에 저장됩니다</li>
         <li>인증 토큰은 기기의 보안 저장소(Keychain / Keystore)에 보관됩니다</li>
         <li>서버로 전송되는 데이터는 HTTPS(TLS)로 암호화됩니다</li>
       </ul>
 
       <h3>데이터 삭제</h3>
-      <p>앱 내 설정 → 데이터 관리에서 모든 로컬 데이터를 삭제할 수 있습니다. Firebase 분석 데이터 삭제를 원하실 경우 아래 이메일로 문의해 주세요.</p>
+      <p>기기에서 앱을 삭제하면 기기에 저장된 모든 로컬 데이터(루틴·완료 기록·컨디션·일기)가 함께 삭제됩니다. 현재 앱 내에는 "전체 데이터 삭제" 메뉴가 없으며, 개별 항목은 각 화면에서 삭제할 수 있습니다(설정 → 데이터에서는 백업/복원만 제공). Firebase 분석 데이터 삭제를 원하실 경우 아래 이메일로 문의해 주세요.</p>
     </div>
 
     <!-- Section 5 -->
@@ -665,8 +685,8 @@
       <span class="badge">🌿 Sprig</span>
       <h1 class="doc-title">Privacy Policy</h1>
       <div class="doc-meta">
-        <span>Effective: April 23, 2026</span>
-        <span>Version: 1.1.0</span>
+        <span>Effective: June 27, 2026</span>
+        <span>Version: 1.2.0</span>
         <span>Developer: ORVEN Studio</span>
       </div>
     </div>
@@ -702,8 +722,14 @@
       <div class="section-number">Section 01</div>
       <h2>Information We Collect</h2>
 
+      <div class="highlight">
+        <strong>Required vs optional</strong><br>
+        Items 1-2 (Firebase Analytics / Crashlytics) are required to operate and improve the app; declining may limit your ability to use the service. Item 1-3 (premium features) is currently in preparation and, once available, will be collected only when you enable that feature — it is optional, and declining does not limit core functionality.
+      </div>
+
       <h3>1-1. User-Created Data</h3>
       <p>All data you enter — routines, completion logs, condition scores, and diary entries — is stored <strong>locally on your device (SQLite)</strong> and never transmitted to any server.</p>
+      <p>If you add the home-screen widget, a summary of your routines, completions, condition, and streak is shared with the widget through an on-device app group container (group.com.orvenstudio.sprig). This data never leaves your device.</p>
 
       <h3>1-2. Automatically Collected Data</h3>
       <table class="data-table">
@@ -724,6 +750,12 @@
             <td>Bug fixes</td>
           </tr>
           <tr>
+            <td>Anonymous device identifier (Firebase Installation ID)</td>
+            <td>Firebase</td>
+            <td><span class="pill pill-remote">Google servers</span></td>
+            <td>Associate analytics / crash reports (cannot identify you personally)</td>
+          </tr>
+          <tr>
             <td>Notification schedules</td>
             <td>App (local)</td>
             <td><span class="pill pill-local">Device only</span></td>
@@ -732,6 +764,7 @@
         </tbody>
       </table>
       <div class="highlight">Firebase Analytics does not collect personally identifiable information. Only aggregated statistics are processed. See <a href="https://policies.google.com/privacy" style="color:var(--primary)">Google's Privacy Policy</a> for details.</div>
+      <p style="font-size:13px; color:var(--text3)">All notifications — routine reminders and companion/engagement nudges — are scheduled locally on your device. Sprig uses no server push (remote notifications).</p>
 
       <h3>1-3. Premium Features (when applicable)</h3>
       <table class="data-table">
@@ -766,6 +799,18 @@
         </tbody>
       </table>
       <p style="font-size:13px; color:var(--text3)">* Premium features are coming soon. You will be notified before activation.</p>
+
+      <h3>1-4. Advertising Identifier</h3>
+      <p>On <strong>Android</strong>, Firebase Analytics may use the device advertising identifier (AAID) for usage analysis. You can reset it or opt out of personalized ads at any time in your device settings. On <strong>iOS</strong>, Sprig does not use the advertising identifier (IDFA) and is not subject to App Tracking Transparency (our privacy manifest declares no tracking, NSPrivacyTracking=false).</p>
+      <ul class="rights-list">
+        <li><strong>Android</strong> — Settings → Privacy → Ads → "Delete advertising ID" or "Opt out of Ads Personalization"</li>
+        <li><strong>iOS</strong> — Sprig does not collect the IDFA, so no tracking opt-out is required.</li>
+      </ul>
+
+      <h3>1-5. Device Permission — Photo Library</h3>
+      <p>We request photo-library access only when you save a stats card as an image. The saved image is stored on your device and is never transmitted anywhere.</p>
+
+      <div class="highlight">On launch, the app anonymously downloads version info, translations, and routine presets from Google Sheets (read-only). No user data is sent in this process.</div>
     </div>
 
     <!-- Section 2 -->
@@ -828,12 +873,12 @@
       <p>Local data (routines, conditions, diary) is retained until you delete the app or clear data manually. Firebase analytics data is retained per Google's policy (default 14 months).</p>
       <h3>Security</h3>
       <ul class="rights-list">
-        <li>Cloud backup data is encrypted with AES-256 before upload to Google Drive</li>
+        <li>Cloud backup data is encrypted with AES-256 before upload to Google Drive (Android) or iCloud (iOS)</li>
         <li>Auth tokens are stored in the device's secure enclave (Keychain / Keystore)</li>
         <li>All data transmitted to servers is encrypted via HTTPS (TLS)</li>
       </ul>
       <h3>Deletion</h3>
-      <p>You can delete all local data from Settings → Data Management in the app. To request deletion of Firebase analytics data, contact us by email below.</p>
+      <p>Deleting the app removes all local data (routines, completion logs, conditions, diary) stored on your device. The app does not currently provide a single "delete all data" menu; individual items can be deleted from their respective screens (Settings → Data offers backup/restore only). To request deletion of Firebase analytics data, contact us by email below.</p>
     </div>
 
     <!-- Section 5 -->
