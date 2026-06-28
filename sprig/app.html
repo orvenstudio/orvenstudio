@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Sprig — Download</title>
+  <meta name="description" content="Download Sprig — Small Habit Tracker. Routine tracking, condition logging, and a calm habit garden for iOS & Android." />
+
+  <!-- Open Graph (link share previews) -->
+  <meta property="og:title" content="Sprig — Small Habit Tracker" />
+  <meta property="og:description" content="Keep one core routine, and today is a win. Available on iOS & Android." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://orvenstudio.github.io/orvenstudio/sprig/app.html" />
+  <meta property="og:image" content="https://orvenstudio.github.io/orvenstudio/sprig/app-icon.png" />
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="app-icon.png" />
+
+  <!-- ─────────────────────────────────────────────────────────────
+       GA4 (optional): replace GA4_ID with your Measurement ID
+       (G-XXXXXXXXXX) to enable. While it stays a placeholder, no
+       request is sent.
+       ───────────────────────────────────────────────────────────── -->
+  <script>
+    window.GA4_ID = 'G-ZT8W85T64J'; // GA4 Measurement ID — "Sprig Web" stream
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    if (window.GA4_ID && window.GA4_ID.indexOf('XXXX') === -1) {
+      var _ga = document.createElement('script');
+      _ga.async = true;
+      _ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_ID;
+      document.head.appendChild(_ga);
+      gtag('js', new Date());
+      gtag('config', window.GA4_ID);
+    }
+  </script>
+
+  <style>
+    /* ── Design Tokens (Sprig) — same as privacy/terms/support ── */
+    :root {
+      --primary:        #5A9E7C;
+      --primary-light:  #E8F5EE;
+      --primary-dark:   #3D7A5C;
+      --bg:             #F7F6F3;
+      --surface:        #FFFFFF;
+      --surface2:       #F2F1EE;
+      --text1:          #1C1C1E;
+      --text2:          #6B6B70;
+      --text3:          #AEAEB2;
+      --border:         #E5E5EA;
+      --radius:         14px;
+      --radius-sm:      10px;
+      --font:           -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans KR', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text1);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 380px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 28px 28px;
+      text-align: center;
+      box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 8px 28px rgba(0,0,0,.05);
+    }
+
+    /* ── App icon (actual artwork) ── */
+    .app-icon {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      display: block;
+      border-radius: 22%;            /* iOS-style rounded square */
+      box-shadow: 0 6px 16px rgba(0,0,0,.14);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text1);
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: 15px;
+      color: var(--text2);
+    }
+
+    .redir-msg {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-top: 16px;
+    }
+
+    /* ── Official store badges (artwork unmodified; clear space preserved) ── */
+    .stores {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .stores a {
+      display: inline-flex;
+      transition: opacity .12s ease, transform .12s ease;
+    }
+    .stores a:hover  { opacity: .88; transform: translateY(-1px); }
+    .stores a:active { opacity: .8;  transform: translateY(0); }
+    /* Both badges render at the same 44px button height. The Google asset
+       (badge-google-play.png) is the official badge trimmed of its transparent
+       canvas margin, so its image box == the dark button — exactly like Apple's
+       full-bleed badge. Required clear space is provided by the card padding +
+       gap (> 1/4 of the badge height). The logo artwork itself is unaltered. */
+    .badge-apple  { height: 44px; }
+    .badge-google { height: 44px; }
+    .stores img { display: block; width: auto; }
+
+    .foot {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text3);
+    }
+    .foot a { color: var(--text2); text-decoration: none; }
+    .foot a:hover { color: var(--primary-dark); text-decoration: underline; }
+    .foot .dot { margin: 0 6px; color: var(--border); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="app-icon" src="app-icon.png" width="84" height="84"
+         alt="Sprig app icon" />
+    <div class="badge">Small Habit Tracker</div>
+    <h1>Sprig</h1>
+    <p class="tagline">Keep one core routine, and today is a win.</p>
+
+    <p class="redir-msg" id="redirMsg" hidden>Taking you to the right store…</p>
+
+    <div class="stores">
+      <!-- App Store — official Apple badge artwork (do not modify) -->
+      <a id="iosBtn" href="https://apps.apple.com/app/id6764383693" rel="noopener"
+         aria-label="Download Sprig on the App Store">
+        <img class="badge-apple" src="badge-app-store.svg" alt="Download on the App Store" />
+      </a>
+      <!-- Google Play — official Google badge artwork (do not modify) -->
+      <a id="androidBtn" href="https://play.google.com/store/apps/details?id=com.orvenstudio.sprig" rel="noopener"
+         aria-label="Get Sprig on Google Play">
+        <img class="badge-google" src="badge-google-play.png" alt="Get it on Google Play" />
+      </a>
+    </div>
+
+    <p class="foot">
+      © orvenstudio
+      <span class="dot">·</span>
+      <a href="privacy-policy.html">Privacy</a>
+      <span class="dot">·</span>
+      <a href="terms-of-service.html">Terms</a>
+      <span class="dot">·</span>
+      <a href="support.html">Support</a>
+    </p>
+  </main>
+
+  <script>
+    (function () {
+      var IOS_URL = 'https://apps.apple.com/app/id6764383693';
+      var AND_URL = 'https://play.google.com/store/apps/details?id=com.orvenstudio.sprig';
+
+      var ua = navigator.userAgent || navigator.vendor || '';
+      // iPadOS 13+ masquerades as desktop Safari (Macintosh) → correct via touch points
+      var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+                  (/Macintosh/i.test(ua) && (navigator.maxTouchPoints || 0) > 1);
+      var isAndroid = /Android/i.test(ua);
+
+      var dest = isIOS ? IOS_URL : (isAndroid ? AND_URL : null);
+
+      if (dest) {
+        // Mobile: redirect immediately (use replace to avoid polluting history)
+        var msg = document.getElementById('redirMsg');
+        if (msg) msg.hidden = false;
+        try {
+          gtag('event', 'app_redirect', {
+            platform: isIOS ? 'ios' : 'android',
+            transport_type: 'beacon'
+          });
+        } catch (e) {}
+        location.replace(dest);
+      } else {
+        // Desktop / undetected: keep the landing (manual badges). Log only.
+        try { gtag('event', 'app_landing', { platform: 'desktop_or_unknown' }); } catch (e) {}
+      }
+    })();
+  </script>
+</body>
+</html>
